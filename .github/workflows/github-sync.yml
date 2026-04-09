@@ -1,4 +1,4 @@
-name: Weekly Top Repos
+name: My GitHub Sync
 
 # This workflow is INACTIVE by default.
 # To activate, remove the 'if: false' line on the job below.
