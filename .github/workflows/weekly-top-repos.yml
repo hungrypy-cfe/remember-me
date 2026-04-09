@@ -22,7 +22,7 @@ jobs:
 
       - name: Install Ghost CLI
         run: |
-          curl -fsSL https://get.ghost.dev | sh
+          curl -fsSL https://install.ghost.build | sh
 
       - name: Install wb
         run: |
