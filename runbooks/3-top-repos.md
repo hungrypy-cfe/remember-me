@@ -54,7 +54,10 @@ else
   WEEK_AGO=$(date -d '7 days ago' +%Y-%m-%d)
 fi
 
-gh search repos "created:>$WEEK_AGO stars:>50" \
+TOP_REPOS_QUERY="created:>$WEEK_AGO"
+TOP_REPOS_STARS_FILTER="stars:>50"
+
+gh search repos "$TOP_REPOS_QUERY $TOP_REPOS_STARS_FILTER" \
   --limit 1000 \
   --json name,url,description,stargazersCount,language,updatedAt \
   > "$TOP_REPOS_JSON"

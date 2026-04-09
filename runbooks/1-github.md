@@ -83,7 +83,17 @@ gh search repos "stars:>50000" \
 
 ### Export recently trending repos
 ```bash
-gh search repos "created:>$(date -v-7d +%Y-%m-%d) stars:>50" \
+# Portable date: macOS uses -v, Linux uses -d
+if WEEK_AGO=$(date -v-7d +%Y-%m-%d 2>/dev/null); then
+  :
+else
+  WEEK_AGO=$(date -d '7 days ago' +%Y-%m-%d)
+fi
+
+TRENDING_QUERY="created:>$WEEK_AGO"
+TRENDING_STARS_FILTER="stars:>50"
+
+gh search repos "$TRENDING_QUERY $TRENDING_STARS_FILTER" \
   --limit 200 \
   --json name,url,description,stargazersCount,language,updatedAt \
   > "$TRENDING_JSON"
