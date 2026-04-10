@@ -5,3 +5,4 @@ raw/chrome/*.html
 raw/github/*.json
 raw/hacker-news/*.json
 raw/hacker-news/*.ndjson
+demo/.ghost-fork.env
